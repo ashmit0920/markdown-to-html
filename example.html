@@ -1,0 +1,100 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Markdown to HTML</title>
+    </head>
+    <body>
+        <h1>Peekaboo</h1>
+
+<p>Peekaboo is a <strong>System Monitoring CLI tool</strong> built in Rust. It allows you to monitor various system parameters such as CPU usage, memory usage, disk usage, and network usage.</p>
+
+<p><img src="./assets/system.png" alt="Peekaboo" /></p>
+
+<h2>Features</h2>
+
+<ul>
+<li>Monitor CPU usage</li>
+<li>Monitor memory usage</li>
+<li>Monitor disk usage</li>
+<li>Monitor network usage</li>
+<li>Save and display user names</li>
+</ul>
+
+<h2>Installation</h2>
+
+<ol>
+<li><p>Clone the repository:
+<code>sh
+git clone https://github.com/ashmit0920/Peekaboo.git
+</code></p></li>
+<li><p>Extract the cloned directory, and add it to your environment's <code>PATH</code> variable for easy access:</p>
+
+<ol>
+<li>Search for "Edit environment variables" in your Windows Search bar and click on the search result.</li>
+<li>Under "System Variables" (for all users), select "Path" =&gt; "Edit". In case you lack the permissions to edit System variables, just edit the Path variable under "User Variables".</li>
+<li>A table pops up showing the directories included in the current PATH. Click on "New" ⇒ "Browse..." to select the cloned Peekaboo directory. Click on ⇒ "OK" (Don't "Cancel") ⇒ "OK" ⇒ "OK".</li>
+<li>(For older Windows) If you didn't see a pop-up table, it is time to change your computer.</li>
+</ol></li>
+</ol>
+
+<h2>Usage</h2>
+
+<ul>
+<li>To display the help menu:
+<code>sh
+peek -h
+</code></li>
+<li><p>To store a user name:
+<code>sh
+peek --name &lt;name&gt;
+</code>
+The user name will be stored and will be displayed on subsequent runs.</p></li>
+<li><p>To display system information
+<code>sh
+peek -s
+</code></p></li>
+<li><p>To monitor CPU usage:
+<code>sh
+peek -c
+</code></p></li>
+<li><p>To monitor memory usage:
+<code>sh
+peek -m
+</code></p></li>
+<li><p>To monitor disk usage:
+<code>sh
+peek -d
+</code></p></li>
+<li><p>To monitor network usage:
+<code>sh
+peek -n
+</code></p></li>
+<li><p>To monitor all of the above at once:
+<code>sh
+peek --showall
+</code></p></li>
+</ul>
+
+<h2>Examples</h2>
+
+<h4>CPU Usage:</h4>
+
+<p><img src="./assets/cpu.png" alt="CPU usage" /></p>
+
+<h4>Memory and Disk usage:</h4>
+
+<p><img src="./assets/memory%20and%20disk.png" alt="Memory and Disk usage" /></p>
+
+<h4>Network usage:</h4>
+
+<p><img src="./assets/network.png" alt="Network Usage" /></p>
+
+<h4>Show all parameters</h4>
+
+<p><img src="./assets/showall.png" alt="Show all" /></p>
+
+    </body>
+    </html>
+    
