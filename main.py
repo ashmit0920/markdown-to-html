@@ -66,11 +66,11 @@ def wrap_with_template(html_content, title="Markdown to HTML"):
 def convert_markdown_file(input_file, output_file):
     with open(input_file, 'r') as f:
         markdown_text = f.read()
+
     html_content = markdown_to_html(markdown_text)
     full_html = wrap_with_template(html_content)
+
     with open(output_file, 'w') as f:
         f.write(full_html)
-
-input_markdown_file = 'example.md'
-output_html_file = 'example.html'
-convert_markdown_file(input_markdown_file, output_html_file)
+    
+    return output_file
