@@ -11,7 +11,7 @@ def wrap_with_template(html_content, title="Markdown to HTML"):
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 25px;
-            background-color: #010020;
+            background-color: #0f0f0f;
             color: #f1f1f1;
         }
         .container {
@@ -26,7 +26,7 @@ def wrap_with_template(html_content, title="Markdown to HTML"):
         }
 
         h4, h5, h6 {
-            color: #00ffaa;
+            color: #25c2a0;
         }
         pre {
             background: #333;
@@ -35,13 +35,14 @@ def wrap_with_template(html_content, title="Markdown to HTML"):
             overflow-x: auto;
         }
         code {
-            background: #34373c;
+            background: #242526;
+            color: #25c2a0;
             padding: 2px 4px;
         }
         blockquote {
-            border-left: 4px solid #4CAF50;
+            border-left: 4px solid #25c2a0;
             padding-left: 10px;
-            color: #666;
+            color: #f08d49;
             margin: 20px 0;
         }
     </style>
