@@ -1,8 +1,25 @@
 import markdown2
+import re
 
 def markdown_to_html(markdown_text):
-    html = markdown2.markdown(markdown_text)
+    html = markdown2.markdown(markdown_text, extras=["fenced-code-blocks", "tables", "footnotes"])
     return html
+
+def generate_toc(html_content):
+    # Generate a table of contents from the headings
+    toc = []
+    heading_pattern = re.compile(r'<h([1-6])>(.*?)</h\1>')
+
+    def replace_heading(match):
+        level = match.group(1)
+        title = match.group(2)
+        anchor = title.lower().replace(' ', '-')
+        toc.append(f'<li class="toc-level-{level}"><a href="#{anchor}">{title}</a></li>')
+        return f'<h{level} id="{anchor}">{title}</h{level}>'
+
+    content_with_anchors = re.sub(heading_pattern, replace_heading, html_content)
+    toc_html = '<ul class="toc">' + ''.join(toc) + '</ul>'
+    return toc_html, content_with_anchors
 
 def wrap_with_template(html_content, title="Markdown to HTML"):
     css = """
@@ -45,8 +62,21 @@ def wrap_with_template(html_content, title="Markdown to HTML"):
             color: #f08d49;
             margin: 20px 0;
         }
+        .toc {
+            margin: 20px 0;
+            padding: 0;
+            list-style: none;
+        }
+        .toc li {
+            margin: 5px 0;
+        }
+        .toc-level-1 { font-weight: bold; }
+        .toc-level-2 { margin-left: 20px; }
+        .toc-level-3 { margin-left: 40px; }
     </style>
     """
+
+    toc_html, html_with_anchors = generate_toc(html_content)
 
     template = f"""
     <!DOCTYPE html>
@@ -58,7 +88,10 @@ def wrap_with_template(html_content, title="Markdown to HTML"):
         {css}
     </head>
     <body>
-        {html_content}
+        <div class="container">
+            {toc_html}
+            {html_with_anchors}
+        </div>
     </body>
     </html>
     """
